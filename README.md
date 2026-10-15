@@ -9,10 +9,12 @@ generated code needs and kept free of dependencies.
   paths rewritten to this module and nothing else changed.
   `internal/tools/prune` writes the whole tree from an upstream checkout,
   and CI checks that running it again changes nothing.
-- **Only what is needed:** the 27 packages that `proto`, `protoreflect`,
-  `protoregistry`, `protowire`, `protoiface` and `protoimpl` need (about
-  35,000 lines). Of the rest of upstream, only what their tests import is
-  kept, without its own tests.
+- **Only what is needed:** the 33 packages (about 44,000 lines) that the
+  runtime (`proto`, `protoreflect`, `protoregistry`, `protowire`,
+  `protoiface`, `protoimpl`) and protoc plugins (`prototext`, `protodesc`,
+  `descriptorpb`, `dynamicpb`, `gofeaturespb`, `pluginpb`) need. Of the
+  rest of upstream, only what their tests import is kept, without its own
+  tests.
 - **No dependencies:** `go.mod` requires nothing, and every package, tests
   included, imports only the Go standard library and this module.
   `internal/depcheck` fails the tests otherwise. go-cmp, the one third-party

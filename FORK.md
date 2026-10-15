@@ -15,10 +15,14 @@ new release does not involve merging.
 
 ## What is kept
 
-**The runtime.** The packages that generated code and etcd raft import
-(`proto`, `encoding/protowire`, `reflect/protoreflect`,
-`reflect/protoregistry`, `runtime/protoiface`, `runtime/protoimpl`) and
-every package they import: 27 packages, about 35,000 lines, with
+**The runtime and what protoc plugins need.** The packages that
+generated code and etcd raft import (`proto`, `encoding/protowire`,
+`reflect/protoreflect`, `reflect/protoregistry`, `runtime/protoiface`,
+`runtime/protoimpl`), those a protoc plugin needs to read descriptors and
+answer protoc (`encoding/prototext`, `reflect/protodesc`,
+`types/descriptorpb`, `types/dynamicpb`, `types/gofeaturespb`,
+`types/pluginpb`; raftseg/protobuf-go-lite's code generator uses them),
+and every package they import: 33 packages, about 44,000 lines, with
 upstream's tests and test data. The set is computed with each build flag
 that selects other files (`-tags=protolegacy`, `-tags=protoreflect`,
 `-race`), so that every variant upstream tests builds.
@@ -26,8 +30,8 @@ that selects other files (`-tags=protolegacy`, `-tags=protoreflect`,
 **What those tests need.** Every package the runtime's tests import, and
 everything those import: generated test messages
 (`internal/testprotos/...`), the well-known types, `encoding/protojson`,
-`reflect/protodesc`, `types/dynamicpb`, `testing/protocmp`,
-`testing/protopack` and others, 60 packages in all. They are kept without
+`testing/protocmp`, `testing/protopack`, `testing/prototest` and others,
+56 packages in all. They are kept without
 their own tests and test data, which would pull in most of the rest of
 upstream. They are used by tests only.
 
@@ -41,7 +45,7 @@ its tests. It is used by tests only.
 
 Everything else: the `protoc-gen-go` plugin and `compiler/protogen`,
 `encoding/protodelim`, `protoadapt`, `reflect/protopath` and
-`reflect/protorange`, `testing/prototest`, the generators and tools under
+`reflect/protorange`, the generators and tools under
 `internal/cmd`, benchmarks, fuzz targets of the packages left out,
 conformance testing, upstream's integration test and release scripts, and
 its CI configuration. Generating code needs upstream's `protoc-gen-go`; the
@@ -99,8 +103,8 @@ git add -A && git commit
 sets the version, commit and sum in `upstream.json` (and empties
 `cherryPicked`), and fails if the release imports a third-party module
 other than go-cmp. Update the version named in README.md and this file.
-Review the diff of the 27 runtime packages; the rest is used by tests
-only.
+Review the diff of the 33 packages kept with their tests; the rest is
+used by tests only.
 
 ## Additions
 

@@ -360,7 +360,10 @@ reflect/protodesc/desc_init.go
 reflect/protodesc/desc_resolve.go
 reflect/protodesc/desc_validate.go
 reflect/protodesc/editions.go
+reflect/protodesc/editions_test.go
+reflect/protodesc/file_test.go
 reflect/protodesc/proto.go
+reflect/protodesc/proto_test.go
 reflect/protoreflect/methods.go
 reflect/protoreflect/proto.go
 reflect/protoreflect/proto_test.go
@@ -383,9 +386,13 @@ testing/protocmp/reflect.go
 testing/protocmp/util.go
 testing/protocmp/xform.go
 testing/protopack/pack.go
+testing/prototest/enum.go
+testing/prototest/message.go
 types/descriptorpb/descriptor.pb.go
 types/dynamicpb/dynamic.go
+types/dynamicpb/dynamic_test.go
 types/dynamicpb/types.go
+types/dynamicpb/types_test.go
 types/gofeaturespb/go_features.pb.go
 types/known/anypb/any.pb.go
 types/known/durationpb/duration.pb.go
@@ -394,3 +401,4 @@ types/known/fieldmaskpb/field_mask.pb.go
 types/known/structpb/struct.pb.go
 types/known/timestamppb/timestamp.pb.go
 types/known/wrapperspb/wrappers.pb.go
+types/pluginpb/plugin.pb.go

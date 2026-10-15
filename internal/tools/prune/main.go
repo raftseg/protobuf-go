@@ -50,7 +50,9 @@ const (
 )
 
 // roots are the packages the fork exists for: those that protoc-gen-go's
-// generated code imports, and those etcd raft imports.
+// generated code imports and those etcd raft imports (the runtime), and
+// those a protoc plugin needs to read descriptors and answer protoc
+// (raftseg/protobuf-go-lite's code generator).
 var roots = []string{
 	"proto",
 	"encoding/protowire",
@@ -58,6 +60,13 @@ var roots = []string{
 	"reflect/protoregistry",
 	"runtime/protoiface",
 	"runtime/protoimpl",
+
+	"encoding/prototext",
+	"reflect/protodesc",
+	"types/descriptorpb",
+	"types/dynamicpb",
+	"types/gofeaturespb",
+	"types/pluginpb",
 }
 
 // buildVariants are the build flags whose files the closure must cover.

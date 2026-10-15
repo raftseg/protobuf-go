@@ -68,10 +68,23 @@ of the old one that wraps the new. The old API is not used with this fork.
 - **`go.mod`** declares this module and upstream's Go version, and nothing
   else.
 
-There are no patches to upstream's code. `prune` can apply exact
-replacements to upstream files (its `patches` list), for fixes taken from
-upstream between releases or found here; each would be listed in this
-section, and its file's header would say so.
+`prune` applies exact replacements to upstream files, listed in its
+`patches`, and each such file's header says so. There is one:
+
+## Fixes
+
+**A map entry could panic the decoder (`proto/decode.go`).** Decoding a
+map entry that holds a key and then a key of another wire type left the
+key invalid while still recording it as present, and the entry then
+panicked in `MapKey` ("type mismatch: cannot convert nil to map key").
+Any program that decodes untrusted input into `dynamicpb` messages with
+map fields could be crashed this way: they take the reflection path
+(`UnmarshalOptions.unmarshalMap`). Generated code takes another path
+(`internal/impl.consumeMap`), which reads the key into a temporary and
+was not affected; the fix does the same. The bug is in upstream's
+v1.36.11 and in its master branch as of October 2026.
+raftseg/protobuf-go-lite's differential test found it. Test:
+`proto/fork_map_test.go`, which panics on upstream's code.
 
 ## Checks
 
@@ -102,7 +115,9 @@ git add -A && git commit
 `prune` removes the files the previous run wrote, writes the new ones,
 sets the version, commit and sum in `upstream.json` (and empties
 `cherryPicked`), and fails if the release imports a third-party module
-other than go-cmp. Update the version named in README.md and this file.
+other than go-cmp, or if a patch no longer applies: then check whether
+the release fixed the bug, and drop or redo the patch. Update the version
+named in README.md and this file.
 Review the diff of the 33 packages kept with their tests; the rest is
 used by tests only.
 
@@ -110,4 +125,4 @@ used by tests only.
 
 Tests of the fork's own go in files of their own (not named as any
 upstream file, which `prune` refuses to overwrite), and are kept across
-updates. There are none yet.
+updates: `proto/fork_map_test.go`, the regression test of the fix above.

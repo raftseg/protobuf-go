@@ -5,8 +5,8 @@ A fork of [Go protocol buffers](https://github.com/protocolbuffers/protobuf-go)
 generated code needs and kept free of dependencies.
 
 - **Module:** `github.com/raftseg/protobuf-go`.
-- **Upstream's code, unchanged:** every file is upstream's, with import
-  paths rewritten to this module and nothing else changed.
+- **Upstream's code, all but unchanged:** every file is upstream's, with
+  import paths rewritten to this module, and one fix (FORK.md lists it).
   `internal/tools/prune` writes the whole tree from an upstream checkout,
   and CI checks that running it again changes nothing.
 - **Only what is needed:** the 33 packages (about 44,000 lines) that the

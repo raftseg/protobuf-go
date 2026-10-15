@@ -84,7 +84,30 @@ type patch struct {
 	file, old, new, note string
 }
 
-var patches = []patch{}
+var patches = []patch{{
+	// A map entry with a valid key and then a key of another wire type
+	// left key invalid while haveKey stayed true, and the entry then
+	// panicked in key.MapKey(). This is the reflection path, which dynamicpb
+	// messages take; the generated-code path (internal/impl.consumeMap)
+	// already reads the key into a temporary. Test:
+	// proto/fork_map_test.go.
+	file: "proto/decode.go",
+	old: `		case genid.MapEntry_Key_field_number:
+			key, n, err = o.unmarshalScalar(b, wtyp, keyField)
+			if err != nil {
+				break
+			}
+			haveKey = true`,
+	new: `		case genid.MapEntry_Key_field_number:
+			var k protoreflect.Value
+			k, n, err = o.unmarshalScalar(b, wtyp, keyField)
+			if err != nil {
+				break
+			}
+			key = k
+			haveKey = true`,
+	note: "a map entry whose key is followed by a key of another wire type no longer panics in unmarshalMap.",
+}}
 
 var importNote = "import paths rewritten for this\n// fork's module."
 
@@ -403,8 +426,13 @@ var modifiedRE = regexp.MustCompile(`(?m)^// Modified by the raftseg authors: (.
 func markModified(b []byte, note, rel string) ([]byte, error) {
 	s := string(b)
 	if m := modifiedRE.FindStringSubmatchIndex(s); m != nil {
-		// A second change: append it to the note.
-		s = s[:m[1]] + ";\n// " + note + s[m[1]:]
+		// A second change: one note naming both.
+		var text []string
+		for _, line := range strings.Split(s[m[0]:m[1]], "\n") {
+			text = append(text, strings.TrimPrefix(line, "// "))
+		}
+		joined := strings.TrimSuffix(strings.Join(text, " "), ".") + "; " + strings.Join(strings.Fields(note), " ")
+		s = s[:m[0]] + wrapComment(joined) + s[m[1]:]
 	} else {
 		lines := strings.SplitAfter(s, "\n")
 		n := 0
@@ -426,6 +454,20 @@ func markModified(b []byte, note, rel string) ([]byte, error) {
 		return nil, fmt.Errorf("%s: %v", rel, err)
 	}
 	return out, nil
+}
+
+// wrapComment formats text as // lines of at most 77 columns.
+func wrapComment(text string) string {
+	var lines []string
+	line := "//"
+	for _, w := range strings.Fields(text) {
+		if len(line)+1+len(w) > 77 && line != "//" {
+			lines = append(lines, line)
+			line = "//"
+		}
+		line += " " + w
+	}
+	return strings.Join(append(lines, line), "\n")
 }
 
 // removeListed removes the files the previous run wrote, and directories

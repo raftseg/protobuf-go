@@ -2,8 +2,9 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 //
-// Modified by the raftseg authors: import paths rewritten for this
-// fork's module.
+// Modified by the raftseg authors: import paths rewritten for this fork's
+// module; a map entry whose key is followed by a key of another wire type no
+// longer panics in unmarshalMap.
 
 package proto
 
@@ -258,10 +259,12 @@ func (o UnmarshalOptions) unmarshalMap(b []byte, wtyp protowire.Type, mapv proto
 		err = errUnknown
 		switch num {
 		case genid.MapEntry_Key_field_number:
-			key, n, err = o.unmarshalScalar(b, wtyp, keyField)
+			var k protoreflect.Value
+			k, n, err = o.unmarshalScalar(b, wtyp, keyField)
 			if err != nil {
 				break
 			}
+			key = k
 			haveKey = true
 		case genid.MapEntry_Value_field_number:
 			var v protoreflect.Value

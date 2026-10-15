@@ -19,7 +19,9 @@ file modified by the raftseg authors says so in its header.
       - Only the packages generated code needs, and the packages their
         tests import, are kept; upstream-files.txt lists every file taken.
       - Import paths rewritten from google.golang.org/protobuf and
-        github.com/google/go-cmp to this module. No other change.
+        github.com/google/go-cmp to this module.
+      - One fix, to proto/decode.go: a map entry could panic the decoder
+        (FORK.md, Fixes).
       - go.mod requires nothing (upstream required github.com/google/go-cmp
         and github.com/golang/protobuf).
       - Repository plumbing was removed: CI configuration, scripts,

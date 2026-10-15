@@ -1,0 +1,78 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        go: ["1.24.x", "1.27.x"]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: ${{ matrix.go }}
+          cache: false
+      - name: gofmt
+        run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
+      # The fork's own packages get every check. Upstream's code is kept as
+      # it is, and does not pass three of them (FORK.md, Checks).
+      - name: go vet (fork's own packages)
+        run: go vet ./internal/depcheck ./internal/tools/...
+      - name: go vet (all)
+        run: go vet -composites=false -copylocks=false -unreachable=false ./...
+      - run: go test -count=1 ./...
+      - run: go test -count=1 -short -race ./...
+      - run: go test -count=1 -tags=protolegacy ./...
+      - run: go test -count=1 -tags=protoreflect ./...
+      - run: go test -count=1 ./proto -test_lazy_unmarshal
+      - name: go test (32-bit)
+        run: GOARCH=386 go test -count=1 ./...
+
+  # The tree is exactly what internal/tools/prune makes from the upstream
+  # release in upstream.json.
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: "1.27.x"
+          cache: false
+      - name: prune upstream again
+        run: |
+          version=$(jq -r .version upstream.json)
+          git clone -q --depth 1 --branch "$version" https://github.com/protocolbuffers/protobuf-go "$RUNNER_TEMP/upstream"
+          go run ./internal/tools/prune -upstream "$RUNNER_TEMP/upstream"
+          git status --porcelain
+          test -z "$(git status --porcelain)"
+
+  # etcd raft's latest release, with its protobuf imports pointed at this
+  # fork, builds and passes its tests. Its test dependencies are fetched
+  # here only; nothing of them enters this module.
+  etcd-raft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: "1.27.x"
+          cache: false
+      - name: etcd raft v3.7.0 on this fork
+        run: |
+          fork=$PWD
+          git clone -q --depth 1 --branch v3.7.0 https://github.com/etcd-io/raft "$RUNNER_TEMP/raft"
+          cd "$RUNNER_TEMP/raft"
+          grep -rl '"google.golang.org/protobuf' --include='*.go' . | xargs sed -i 's#"google.golang.org/protobuf#"github.com/raftseg/protobuf-go#g'
+          go mod edit -droprequire=google.golang.org/protobuf -require=github.com/raftseg/protobuf-go@v0.0.0 -replace=github.com/raftseg/protobuf-go="$fork"
+          go mod tidy
+          ! go list -deps ./... | grep '^google.golang.org/protobuf'
+          go vet ./...
+          go test -count=1 ./...
+          go test -count=1 -short -race ./...

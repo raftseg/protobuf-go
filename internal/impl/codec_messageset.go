@@ -1,16 +1,19 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package impl
 
 import (
 	"sort"
 
-	"google.golang.org/protobuf/encoding/protowire"
-	"google.golang.org/protobuf/internal/encoding/messageset"
-	"google.golang.org/protobuf/internal/errors"
-	"google.golang.org/protobuf/internal/flags"
+	"github.com/raftseg/protobuf-go/encoding/protowire"
+	"github.com/raftseg/protobuf-go/internal/encoding/messageset"
+	"github.com/raftseg/protobuf-go/internal/errors"
+	"github.com/raftseg/protobuf-go/internal/flags"
 )
 
 func sizeMessageSet(mi *MessageInfo, p pointer, opts marshalOptions) (size int) {

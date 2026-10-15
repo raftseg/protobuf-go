@@ -1,14 +1,17 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package impl_test
 
 import (
 	"testing"
 
-	mixedpb "google.golang.org/protobuf/internal/testprotos/mixed"
-	"google.golang.org/protobuf/proto"
+	mixedpb "github.com/raftseg/protobuf-go/internal/testprotos/mixed"
+	"github.com/raftseg/protobuf-go/proto"
 )
 
 var enableLazy = proto.UnmarshalOptions{}

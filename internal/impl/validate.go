@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package impl
 
@@ -11,14 +14,14 @@ import (
 	"reflect"
 	"unicode/utf8"
 
-	"google.golang.org/protobuf/encoding/protowire"
-	"google.golang.org/protobuf/internal/encoding/messageset"
-	"google.golang.org/protobuf/internal/flags"
-	"google.golang.org/protobuf/internal/genid"
-	"google.golang.org/protobuf/internal/strs"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
-	"google.golang.org/protobuf/runtime/protoiface"
+	"github.com/raftseg/protobuf-go/encoding/protowire"
+	"github.com/raftseg/protobuf-go/internal/encoding/messageset"
+	"github.com/raftseg/protobuf-go/internal/flags"
+	"github.com/raftseg/protobuf-go/internal/genid"
+	"github.com/raftseg/protobuf-go/internal/strs"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/reflect/protoregistry"
+	"github.com/raftseg/protobuf-go/runtime/protoiface"
 )
 
 // ValidationStatus is the result of validating the wire-format encoding of a message.

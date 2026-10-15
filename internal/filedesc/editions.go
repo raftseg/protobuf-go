@@ -1,16 +1,19 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package filedesc
 
 import (
 	"fmt"
 
-	"google.golang.org/protobuf/encoding/protowire"
-	"google.golang.org/protobuf/internal/editiondefaults"
-	"google.golang.org/protobuf/internal/genid"
-	"google.golang.org/protobuf/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/encoding/protowire"
+	"github.com/raftseg/protobuf-go/internal/editiondefaults"
+	"github.com/raftseg/protobuf-go/internal/genid"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
 )
 
 var (

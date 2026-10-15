@@ -1,6 +1,9 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package protoregistry_test
 
@@ -9,17 +12,17 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
+	"github.com/raftseg/protobuf-go/internal/gocmp/cmp"
+	"github.com/raftseg/protobuf-go/internal/gocmp/cmp/cmpopts"
 
-	"google.golang.org/protobuf/encoding/prototext"
-	pimpl "google.golang.org/protobuf/internal/impl"
-	"google.golang.org/protobuf/reflect/protodesc"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
+	"github.com/raftseg/protobuf-go/encoding/prototext"
+	pimpl "github.com/raftseg/protobuf-go/internal/impl"
+	"github.com/raftseg/protobuf-go/reflect/protodesc"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/reflect/protoregistry"
 
-	testpb "google.golang.org/protobuf/internal/testprotos/registry"
-	"google.golang.org/protobuf/types/descriptorpb"
+	testpb "github.com/raftseg/protobuf-go/internal/testprotos/registry"
+	"github.com/raftseg/protobuf-go/types/descriptorpb"
 )
 
 func mustMakeFile(s string) protoreflect.FileDescriptor {

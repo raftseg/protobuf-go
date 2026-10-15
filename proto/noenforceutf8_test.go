@@ -1,22 +1,25 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package proto_test
 
 import (
 	"reflect"
 
-	"google.golang.org/protobuf/encoding/prototext"
-	"google.golang.org/protobuf/internal/filedesc"
-	"google.golang.org/protobuf/internal/flags"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protodesc"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/runtime/protoimpl"
-	"google.golang.org/protobuf/testing/protopack"
+	"github.com/raftseg/protobuf-go/encoding/prototext"
+	"github.com/raftseg/protobuf-go/internal/filedesc"
+	"github.com/raftseg/protobuf-go/internal/flags"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/reflect/protodesc"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/runtime/protoimpl"
+	"github.com/raftseg/protobuf-go/testing/protopack"
 
-	"google.golang.org/protobuf/types/descriptorpb"
+	"github.com/raftseg/protobuf-go/types/descriptorpb"
 )
 
 func init() {

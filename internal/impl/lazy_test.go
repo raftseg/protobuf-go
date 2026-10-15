@@ -1,6 +1,9 @@
 // Copyright 2020 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package impl_test
 
@@ -10,18 +13,18 @@ import (
 	"testing"
 	"unsafe"
 
-	"github.com/google/go-cmp/cmp"
-	"google.golang.org/protobuf/internal/errors"
-	"google.golang.org/protobuf/internal/flags"
-	"google.golang.org/protobuf/internal/impl"
-	"google.golang.org/protobuf/internal/protobuild"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/runtime/protoimpl"
-	"google.golang.org/protobuf/testing/protocmp"
+	"github.com/raftseg/protobuf-go/internal/errors"
+	"github.com/raftseg/protobuf-go/internal/flags"
+	"github.com/raftseg/protobuf-go/internal/gocmp/cmp"
+	"github.com/raftseg/protobuf-go/internal/impl"
+	"github.com/raftseg/protobuf-go/internal/protobuild"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/runtime/protoimpl"
+	"github.com/raftseg/protobuf-go/testing/protocmp"
 
-	lazytestpb "google.golang.org/protobuf/internal/testprotos/lazy"
-	"google.golang.org/protobuf/internal/testprotos/messageset/messagesetpb"
-	testpb "google.golang.org/protobuf/internal/testprotos/test"
+	lazytestpb "github.com/raftseg/protobuf-go/internal/testprotos/lazy"
+	"github.com/raftseg/protobuf-go/internal/testprotos/messageset/messagesetpb"
+	testpb "github.com/raftseg/protobuf-go/internal/testprotos/test"
 )
 
 func TestLazyExtensions(t *testing.T) {

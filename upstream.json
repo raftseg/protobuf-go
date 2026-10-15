@@ -1,0 +1,23 @@
+{
+  "comment": "Where this fork comes from, for SBOMs. internal/tools/prune sets version, commit and sum; update cherryPicked with every commit taken from upstream between releases.",
+  "module": "google.golang.org/protobuf",
+  "version": "v1.36.11",
+  "repository": "https://github.com/protocolbuffers/protobuf-go",
+  "commit": "96a179180f0ad6bba9b1e7b6e38d0affb0168e9a",
+  "sum": "h1:fV6ZwhNocDyBLK0dj+fg8ektcVegBBuEolpbTQyBNVE=",
+  "license": "BSD-3-Clause",
+  "copyright": "The Go Authors",
+  "changes": "FORK.md",
+  "cherryPicked": [],
+  "copiedIn": [
+    {
+      "module": "github.com/google/go-cmp",
+      "version": "v0.7.0",
+      "repository": "https://github.com/google/go-cmp",
+      "license": "BSD-3-Clause",
+      "copyright": "The Go Authors",
+      "path": "internal/gocmp",
+      "scope": "tests only"
+    }
+  ]
+}

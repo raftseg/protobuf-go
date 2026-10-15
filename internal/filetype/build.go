@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Package filetype provides functionality for wrapping descriptors
 // with Go type information.
@@ -9,11 +12,11 @@ package filetype
 import (
 	"reflect"
 
-	"google.golang.org/protobuf/internal/descopts"
-	"google.golang.org/protobuf/internal/filedesc"
-	pimpl "google.golang.org/protobuf/internal/impl"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
+	"github.com/raftseg/protobuf-go/internal/descopts"
+	"github.com/raftseg/protobuf-go/internal/filedesc"
+	pimpl "github.com/raftseg/protobuf-go/internal/impl"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/reflect/protoregistry"
 )
 
 // Builder constructs type descriptors from a raw file descriptor

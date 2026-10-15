@@ -1,6 +1,9 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package impl_test
 
@@ -11,27 +14,27 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/google/go-cmp/cmp"
+	"github.com/raftseg/protobuf-go/internal/gocmp/cmp"
 
-	"google.golang.org/protobuf/internal/impl"
-	"google.golang.org/protobuf/internal/pragma"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protodesc"
-	"google.golang.org/protobuf/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/internal/impl"
+	"github.com/raftseg/protobuf-go/internal/pragma"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/reflect/protodesc"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
 
-	proto2_20160225 "google.golang.org/protobuf/internal/testprotos/legacy/proto2_20160225_2fc053c5"
-	proto2_20160519 "google.golang.org/protobuf/internal/testprotos/legacy/proto2_20160519_a4ab9ec5"
-	proto2_20180125 "google.golang.org/protobuf/internal/testprotos/legacy/proto2_20180125_92554152"
-	proto2_20180430 "google.golang.org/protobuf/internal/testprotos/legacy/proto2_20180430_b4deda09"
-	proto2_20180814 "google.golang.org/protobuf/internal/testprotos/legacy/proto2_20180814_aa810b61"
-	proto2_20190205 "google.golang.org/protobuf/internal/testprotos/legacy/proto2_20190205_c823c79e"
-	proto3_20160225 "google.golang.org/protobuf/internal/testprotos/legacy/proto3_20160225_2fc053c5"
-	proto3_20160519 "google.golang.org/protobuf/internal/testprotos/legacy/proto3_20160519_a4ab9ec5"
-	proto3_20180125 "google.golang.org/protobuf/internal/testprotos/legacy/proto3_20180125_92554152"
-	proto3_20180430 "google.golang.org/protobuf/internal/testprotos/legacy/proto3_20180430_b4deda09"
-	proto3_20180814 "google.golang.org/protobuf/internal/testprotos/legacy/proto3_20180814_aa810b61"
-	proto3_20190205 "google.golang.org/protobuf/internal/testprotos/legacy/proto3_20190205_c823c79e"
-	"google.golang.org/protobuf/types/descriptorpb"
+	proto2_20160225 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto2_20160225_2fc053c5"
+	proto2_20160519 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto2_20160519_a4ab9ec5"
+	proto2_20180125 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto2_20180125_92554152"
+	proto2_20180430 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto2_20180430_b4deda09"
+	proto2_20180814 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto2_20180814_aa810b61"
+	proto2_20190205 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto2_20190205_c823c79e"
+	proto3_20160225 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto3_20160225_2fc053c5"
+	proto3_20160519 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto3_20160519_a4ab9ec5"
+	proto3_20180125 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto3_20180125_92554152"
+	proto3_20180430 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto3_20180430_b4deda09"
+	proto3_20180814 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto3_20180814_aa810b61"
+	proto3_20190205 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto3_20190205_c823c79e"
+	"github.com/raftseg/protobuf-go/types/descriptorpb"
 )
 
 func mustLoadFileDesc(b []byte, _ []int) protoreflect.FileDescriptor {

@@ -1,6 +1,9 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Package protodesc provides functionality for converting
 // FileDescriptorProto messages to/from [protoreflect.FileDescriptor] values.
@@ -15,16 +18,16 @@ package protodesc
 import (
 	"strings"
 
-	"google.golang.org/protobuf/internal/editionssupport"
-	"google.golang.org/protobuf/internal/errors"
-	"google.golang.org/protobuf/internal/filedesc"
-	"google.golang.org/protobuf/internal/pragma"
-	"google.golang.org/protobuf/internal/strs"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
+	"github.com/raftseg/protobuf-go/internal/editionssupport"
+	"github.com/raftseg/protobuf-go/internal/errors"
+	"github.com/raftseg/protobuf-go/internal/filedesc"
+	"github.com/raftseg/protobuf-go/internal/pragma"
+	"github.com/raftseg/protobuf-go/internal/strs"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/reflect/protoregistry"
 
-	"google.golang.org/protobuf/types/descriptorpb"
+	"github.com/raftseg/protobuf-go/types/descriptorpb"
 )
 
 // Resolver is the resolver used by [NewFile] to resolve dependencies.

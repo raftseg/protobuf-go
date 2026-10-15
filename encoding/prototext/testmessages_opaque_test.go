@@ -1,6 +1,9 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package prototext_test
 
@@ -8,11 +11,11 @@ import (
 	"fmt"
 	"strings"
 
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/reflect/protoregistry"
 
-	_ "google.golang.org/protobuf/internal/testprotos/textpbeditions"
-	_ "google.golang.org/protobuf/internal/testprotos/textpbeditions/textpbeditions_opaque"
+	_ "github.com/raftseg/protobuf-go/internal/testprotos/textpbeditions"
+	_ "github.com/raftseg/protobuf-go/internal/testprotos/textpbeditions/textpbeditions_opaque"
 )
 
 var relatedMessages = func() map[protoreflect.MessageType][]protoreflect.MessageType {

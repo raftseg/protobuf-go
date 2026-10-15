@@ -1,15 +1,18 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package proto_test
 
 import (
 	"testing"
 
-	"google.golang.org/protobuf/proto"
+	"github.com/raftseg/protobuf-go/proto"
 
-	lazyopaquepb "google.golang.org/protobuf/internal/testprotos/lazy/lazy_opaque"
+	lazyopaquepb "github.com/raftseg/protobuf-go/internal/testprotos/lazy/lazy_opaque"
 )
 
 // testMessageLinked returns a test message with a few fields of various

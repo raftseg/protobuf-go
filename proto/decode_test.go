@@ -1,6 +1,9 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package proto_test
 
@@ -11,14 +14,14 @@ import (
 	"reflect"
 	"testing"
 
-	"google.golang.org/protobuf/encoding/prototext"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/testing/protopack"
-	"google.golang.org/protobuf/types/known/durationpb"
+	"github.com/raftseg/protobuf-go/encoding/prototext"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/testing/protopack"
+	"github.com/raftseg/protobuf-go/types/known/durationpb"
 
-	testpb "google.golang.org/protobuf/internal/testprotos/test"
-	test3pb "google.golang.org/protobuf/internal/testprotos/test3"
+	testpb "github.com/raftseg/protobuf-go/internal/testprotos/test"
+	test3pb "github.com/raftseg/protobuf-go/internal/testprotos/test3"
 )
 
 func TestDecode(t *testing.T) {

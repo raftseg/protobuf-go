@@ -1,6 +1,9 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package proto_test
 
@@ -11,20 +14,20 @@ import (
 	"strings"
 	"testing"
 
-	"google.golang.org/protobuf/internal/impl"
-	"google.golang.org/protobuf/internal/protobuild"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
-	"google.golang.org/protobuf/testing/protopack"
+	"github.com/raftseg/protobuf-go/internal/impl"
+	"github.com/raftseg/protobuf-go/internal/protobuild"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/reflect/protoregistry"
+	"github.com/raftseg/protobuf-go/testing/protopack"
 
-	_ "google.golang.org/protobuf/internal/testprotos/lazy"
-	_ "google.golang.org/protobuf/internal/testprotos/lazy/lazy_opaque"
-	_ "google.golang.org/protobuf/internal/testprotos/required"
-	_ "google.golang.org/protobuf/internal/testprotos/required/required_opaque"
-	_ "google.golang.org/protobuf/internal/testprotos/test"
-	_ "google.golang.org/protobuf/internal/testprotos/test3"
-	_ "google.golang.org/protobuf/internal/testprotos/testeditions/testeditions_hybrid"
-	_ "google.golang.org/protobuf/internal/testprotos/testeditions/testeditions_opaque"
+	_ "github.com/raftseg/protobuf-go/internal/testprotos/lazy"
+	_ "github.com/raftseg/protobuf-go/internal/testprotos/lazy/lazy_opaque"
+	_ "github.com/raftseg/protobuf-go/internal/testprotos/required"
+	_ "github.com/raftseg/protobuf-go/internal/testprotos/required/required_opaque"
+	_ "github.com/raftseg/protobuf-go/internal/testprotos/test"
+	_ "github.com/raftseg/protobuf-go/internal/testprotos/test3"
+	_ "github.com/raftseg/protobuf-go/internal/testprotos/testeditions/testeditions_hybrid"
+	_ "github.com/raftseg/protobuf-go/internal/testprotos/testeditions/testeditions_opaque"
 )
 
 var testLazyUnmarshal = flag.Bool("test_lazy_unmarshal", false, "test lazy proto.Unmarshal")

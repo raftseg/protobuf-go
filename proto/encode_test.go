@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package proto_test
 
@@ -12,17 +15,17 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/google/go-cmp/cmp"
+	"github.com/raftseg/protobuf-go/internal/gocmp/cmp"
 
-	"google.golang.org/protobuf/encoding/prototext"
-	"google.golang.org/protobuf/encoding/protowire"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/types/known/durationpb"
+	"github.com/raftseg/protobuf-go/encoding/prototext"
+	"github.com/raftseg/protobuf-go/encoding/protowire"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/types/known/durationpb"
 
-	orderpb "google.golang.org/protobuf/internal/testprotos/order"
-	testpb "google.golang.org/protobuf/internal/testprotos/test"
-	test3pb "google.golang.org/protobuf/internal/testprotos/test3"
+	orderpb "github.com/raftseg/protobuf-go/internal/testprotos/order"
+	testpb "github.com/raftseg/protobuf-go/internal/testprotos/test"
+	test3pb "github.com/raftseg/protobuf-go/internal/testprotos/test3"
 )
 
 func TestEncode(t *testing.T) {

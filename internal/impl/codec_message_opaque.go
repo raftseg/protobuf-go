@@ -1,6 +1,9 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package impl
 
@@ -9,12 +12,12 @@ import (
 	"reflect"
 	"sort"
 
-	"google.golang.org/protobuf/encoding/protowire"
-	"google.golang.org/protobuf/internal/encoding/messageset"
-	"google.golang.org/protobuf/internal/filedesc"
-	"google.golang.org/protobuf/internal/order"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	piface "google.golang.org/protobuf/runtime/protoiface"
+	"github.com/raftseg/protobuf-go/encoding/protowire"
+	"github.com/raftseg/protobuf-go/internal/encoding/messageset"
+	"github.com/raftseg/protobuf-go/internal/filedesc"
+	"github.com/raftseg/protobuf-go/internal/order"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	piface "github.com/raftseg/protobuf-go/runtime/protoiface"
 )
 
 func (mi *MessageInfo) makeOpaqueCoderMethods(t reflect.Type, si opaqueStructInfo) {

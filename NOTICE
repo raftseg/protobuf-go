@@ -1,0 +1,39 @@
+protobuf-go
+Copyright 2026 The raftseg authors.
+
+This module is a fork of Go protocol buffers and contains code from the
+third-party projects below. Each is licensed under the BSD 3-Clause
+license, whose text is kept next to the code (LICENSE,
+internal/gocmp/LICENSE); Go protocol buffers also grants the patent
+license in PATENTS. Neither project ships a NOTICE file of its own. Every
+file modified by the raftseg authors says so in its header.
+
+./  (the whole module except internal/gocmp/, internal/depcheck/ and
+     internal/tools/)
+    Origin:     Go protocol buffers, google.golang.org/protobuf v1.36.11
+                https://github.com/protocolbuffers/protobuf-go, tag v1.36.11,
+                commit 96a179180f0ad6bba9b1e7b6e38d0affb0168e9a
+    Copyright:  The Go Authors
+    License:    LICENSE, PATENTS
+    Changes:
+      - Only the packages generated code needs, and the packages their
+        tests import, are kept; upstream-files.txt lists every file taken.
+      - Import paths rewritten from google.golang.org/protobuf and
+        github.com/google/go-cmp to this module. No other change.
+      - go.mod requires nothing (upstream required github.com/google/go-cmp
+        and github.com/golang/protobuf).
+      - Repository plumbing was removed: CI configuration, scripts,
+        integration test and go.sum. README.md was renamed to
+        UPSTREAM-README.md.
+      FORK.md lists and explains each change.
+
+internal/gocmp/  (used by tests only)
+    Origin:     github.com/google/go-cmp v0.7.0
+                https://github.com/google/go-cmp, tag v0.7.0
+    Copyright:  The Go Authors
+    License:    internal/gocmp/LICENSE
+    Changes:    The cmp tree without its tests and test data, with import
+                paths rewritten to this module.
+
+internal/depcheck/, internal/tools/
+    Written by the raftseg authors.

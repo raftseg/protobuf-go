@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Package protocmp provides protobuf specific options for the
 // [github.com/google/go-cmp/cmp] package.
@@ -14,16 +17,16 @@ import (
 	"reflect"
 	"strconv"
 
-	"github.com/google/go-cmp/cmp"
+	"github.com/raftseg/protobuf-go/internal/gocmp/cmp"
 
-	"google.golang.org/protobuf/encoding/protowire"
-	"google.golang.org/protobuf/internal/genid"
-	"google.golang.org/protobuf/internal/msgfmt"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
-	"google.golang.org/protobuf/runtime/protoiface"
-	"google.golang.org/protobuf/runtime/protoimpl"
+	"github.com/raftseg/protobuf-go/encoding/protowire"
+	"github.com/raftseg/protobuf-go/internal/genid"
+	"github.com/raftseg/protobuf-go/internal/msgfmt"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/reflect/protoregistry"
+	"github.com/raftseg/protobuf-go/runtime/protoiface"
+	"github.com/raftseg/protobuf-go/runtime/protoimpl"
 )
 
 var (

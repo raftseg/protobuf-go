@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Package protoiface contains types referenced or implemented by messages.
 //
@@ -10,8 +13,8 @@
 package protoiface
 
 import (
-	"google.golang.org/protobuf/internal/pragma"
-	"google.golang.org/protobuf/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/internal/pragma"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
 )
 
 // Methods is a set of optional fast-path implementations of various operations.

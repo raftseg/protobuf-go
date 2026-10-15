@@ -1,6 +1,9 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Package protolazy contains internal data structures for lazy message decoding.
 package protolazy
@@ -9,8 +12,8 @@ import (
 	"fmt"
 	"sort"
 
-	"google.golang.org/protobuf/encoding/protowire"
-	piface "google.golang.org/protobuf/runtime/protoiface"
+	"github.com/raftseg/protobuf-go/encoding/protowire"
+	piface "github.com/raftseg/protobuf-go/runtime/protoiface"
 )
 
 // IndexEntry is the structure for an index of the fields in a message of a

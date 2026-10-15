@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package proto_test
 
@@ -8,8 +11,8 @@ import (
 	"fmt"
 	"testing"
 
-	"google.golang.org/protobuf/internal/impl"
-	piface "google.golang.org/protobuf/runtime/protoiface"
+	"github.com/raftseg/protobuf-go/internal/impl"
+	piface "github.com/raftseg/protobuf-go/runtime/protoiface"
 )
 
 // TestValidate tests the internal message validator.

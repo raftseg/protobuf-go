@@ -1,23 +1,26 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package prototext_test
 
 import (
 	"testing"
 
-	"google.golang.org/protobuf/encoding/prototext"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protoregistry"
+	"github.com/raftseg/protobuf-go/encoding/prototext"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/reflect/protoregistry"
 
-	pb2 "google.golang.org/protobuf/internal/testprotos/textpb2"
-	"google.golang.org/protobuf/types/known/anypb"
-	"google.golang.org/protobuf/types/known/durationpb"
-	"google.golang.org/protobuf/types/known/emptypb"
-	"google.golang.org/protobuf/types/known/structpb"
-	"google.golang.org/protobuf/types/known/timestamppb"
-	"google.golang.org/protobuf/types/known/wrapperspb"
+	pb2 "github.com/raftseg/protobuf-go/internal/testprotos/textpb2"
+	"github.com/raftseg/protobuf-go/types/known/anypb"
+	"github.com/raftseg/protobuf-go/types/known/durationpb"
+	"github.com/raftseg/protobuf-go/types/known/emptypb"
+	"github.com/raftseg/protobuf-go/types/known/structpb"
+	"github.com/raftseg/protobuf-go/types/known/timestamppb"
+	"github.com/raftseg/protobuf-go/types/known/wrapperspb"
 )
 
 func TestRoundTrip(t *testing.T) {

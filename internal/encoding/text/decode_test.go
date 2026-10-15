@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package text_test
 
@@ -11,10 +14,10 @@ import (
 	"testing"
 	"unicode/utf8"
 
-	"github.com/google/go-cmp/cmp"
+	"github.com/raftseg/protobuf-go/internal/gocmp/cmp"
 
-	"google.golang.org/protobuf/internal/encoding/text"
-	"google.golang.org/protobuf/internal/flags"
+	"github.com/raftseg/protobuf-go/internal/encoding/text"
+	"github.com/raftseg/protobuf-go/internal/flags"
 )
 
 var eofErr = text.ErrUnexpectedEOF.Error()

@@ -1,6 +1,9 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Package tag marshals and unmarshals the legacy struct tags as generated
 // by historical versions of protoc-gen-go.
@@ -11,10 +14,10 @@ import (
 	"strconv"
 	"strings"
 
-	"google.golang.org/protobuf/internal/encoding/defval"
-	"google.golang.org/protobuf/internal/filedesc"
-	"google.golang.org/protobuf/internal/strs"
-	"google.golang.org/protobuf/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/internal/encoding/defval"
+	"github.com/raftseg/protobuf-go/internal/filedesc"
+	"github.com/raftseg/protobuf-go/internal/strs"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
 )
 
 var byteType = reflect.TypeOf(byte(0))

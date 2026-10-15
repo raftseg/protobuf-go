@@ -1,6 +1,9 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // This testproto explicitly configures the API level of each message.
 //
@@ -12,9 +15,9 @@
 package mixed
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
+	protoreflect "github.com/raftseg/protobuf-go/reflect/protoreflect"
+	protoimpl "github.com/raftseg/protobuf-go/runtime/protoimpl"
+	_ "github.com/raftseg/protobuf-go/types/gofeaturespb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"

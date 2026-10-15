@@ -1,10 +1,13 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package protoreflect
 
-import "google.golang.org/protobuf/encoding/protowire"
+import "github.com/raftseg/protobuf-go/encoding/protowire"
 
 // Enum is a reflection interface for a concrete enum value,
 // which provides type information and a getter for the enum number.

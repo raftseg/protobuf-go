@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Package descopts contains the nil pointers to concrete descriptor options.
 //
@@ -9,7 +12,7 @@
 // dependency on the descriptor proto package).
 package descopts
 
-import "google.golang.org/protobuf/reflect/protoreflect"
+import "github.com/raftseg/protobuf-go/reflect/protoreflect"
 
 // These variables are set by the init function in descriptor.pb.go via logic
 // in internal/filetype. In other words, so long as the descriptor proto package

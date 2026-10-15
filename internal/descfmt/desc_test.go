@@ -1,6 +1,9 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package descfmt_test
 
@@ -8,10 +11,10 @@ import (
 	"reflect"
 	"testing"
 
-	"google.golang.org/protobuf/internal/descfmt"
-	"google.golang.org/protobuf/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/internal/descfmt"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
 
-	testpb "google.golang.org/protobuf/internal/testprotos/test"
+	testpb "github.com/raftseg/protobuf-go/internal/testprotos/test"
 )
 
 // TestDescriptorAccessors tests that descriptorAccessors is up-to-date.

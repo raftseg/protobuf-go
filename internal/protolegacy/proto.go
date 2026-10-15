@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Package protolegacy is a stub version of the v1 proto package
 // to satisfy internal/testprotos/legacy dependencies.
@@ -13,10 +16,10 @@ import (
 	"fmt"
 	"io"
 
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
-	"google.golang.org/protobuf/runtime/protoiface"
-	"google.golang.org/protobuf/runtime/protoimpl"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/reflect/protoregistry"
+	"github.com/raftseg/protobuf-go/runtime/protoiface"
+	"github.com/raftseg/protobuf-go/runtime/protoimpl"
 )
 
 const (

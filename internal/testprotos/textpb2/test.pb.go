@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Test Protobuf definitions with proto2 syntax.
 
@@ -10,15 +13,15 @@
 package textpb2
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
+	protoreflect "github.com/raftseg/protobuf-go/reflect/protoreflect"
+	protoimpl "github.com/raftseg/protobuf-go/runtime/protoimpl"
+	anypb "github.com/raftseg/protobuf-go/types/known/anypb"
+	durationpb "github.com/raftseg/protobuf-go/types/known/durationpb"
+	emptypb "github.com/raftseg/protobuf-go/types/known/emptypb"
+	fieldmaskpb "github.com/raftseg/protobuf-go/types/known/fieldmaskpb"
+	structpb "github.com/raftseg/protobuf-go/types/known/structpb"
+	timestamppb "github.com/raftseg/protobuf-go/types/known/timestamppb"
+	wrapperspb "github.com/raftseg/protobuf-go/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"

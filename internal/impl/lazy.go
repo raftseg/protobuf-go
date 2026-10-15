@@ -1,6 +1,9 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package impl
 
@@ -12,12 +15,12 @@ import (
 	"sort"
 	"sync/atomic"
 
-	"google.golang.org/protobuf/encoding/protowire"
-	"google.golang.org/protobuf/internal/errors"
-	"google.golang.org/protobuf/internal/protolazy"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	preg "google.golang.org/protobuf/reflect/protoregistry"
-	piface "google.golang.org/protobuf/runtime/protoiface"
+	"github.com/raftseg/protobuf-go/encoding/protowire"
+	"github.com/raftseg/protobuf-go/internal/errors"
+	"github.com/raftseg/protobuf-go/internal/protolazy"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	preg "github.com/raftseg/protobuf-go/reflect/protoregistry"
+	piface "github.com/raftseg/protobuf-go/runtime/protoiface"
 )
 
 var enableLazy int32 = func() int32 {

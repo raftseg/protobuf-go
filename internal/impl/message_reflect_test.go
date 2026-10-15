@@ -1,6 +1,9 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package impl_test
 
@@ -13,20 +16,20 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
+	"github.com/raftseg/protobuf-go/internal/gocmp/cmp"
+	"github.com/raftseg/protobuf-go/internal/gocmp/cmp/cmpopts"
 
-	"google.golang.org/protobuf/encoding/prototext"
-	pimpl "google.golang.org/protobuf/internal/impl"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protodesc"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
-	"google.golang.org/protobuf/testing/protopack"
+	"github.com/raftseg/protobuf-go/encoding/prototext"
+	pimpl "github.com/raftseg/protobuf-go/internal/impl"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/reflect/protodesc"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
+	"github.com/raftseg/protobuf-go/reflect/protoregistry"
+	"github.com/raftseg/protobuf-go/testing/protopack"
 
-	proto2_20180125 "google.golang.org/protobuf/internal/testprotos/legacy/proto2_20180125_92554152"
-	testpb "google.golang.org/protobuf/internal/testprotos/test"
-	"google.golang.org/protobuf/types/descriptorpb"
+	proto2_20180125 "github.com/raftseg/protobuf-go/internal/testprotos/legacy/proto2_20180125_92554152"
+	testpb "github.com/raftseg/protobuf-go/internal/testprotos/test"
+	"github.com/raftseg/protobuf-go/types/descriptorpb"
 )
 
 // List of test operations to perform on messages, lists, or maps.

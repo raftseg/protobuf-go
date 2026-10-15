@@ -1,6 +1,9 @@
 // Copyright 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // The protoreflect tag disables fast-path methods, including legacy ones.
 //go:build !protoreflect
@@ -14,11 +17,11 @@ import (
 	"fmt"
 	"testing"
 
-	"google.golang.org/protobuf/internal/impl"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/runtime/protoiface"
+	"github.com/raftseg/protobuf-go/internal/impl"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/runtime/protoiface"
 
-	legacypb "google.golang.org/protobuf/internal/testprotos/legacy"
+	legacypb "github.com/raftseg/protobuf-go/internal/testprotos/legacy"
 )
 
 type selfMarshaler struct {

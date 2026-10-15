@@ -1,6 +1,9 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package proto_test
 
@@ -9,11 +12,11 @@ import (
 	"testing"
 	"unsafe"
 
-	"github.com/google/go-cmp/cmp"
-	"google.golang.org/protobuf/internal/impl"
-	testopaquepb "google.golang.org/protobuf/internal/testprotos/testeditions/testeditions_opaque"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/testing/protocmp"
+	"github.com/raftseg/protobuf-go/internal/gocmp/cmp"
+	"github.com/raftseg/protobuf-go/internal/impl"
+	testopaquepb "github.com/raftseg/protobuf-go/internal/testprotos/testeditions/testeditions_opaque"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/testing/protocmp"
 )
 
 func fillLazyRequiredMessage() *testopaquepb.TestRequiredLazy {

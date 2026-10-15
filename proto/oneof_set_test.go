@@ -1,14 +1,17 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package proto_test
 
 import (
 	"testing"
 
-	testhybridpb "google.golang.org/protobuf/internal/testprotos/testeditions/testeditions_hybrid"
-	testopaquepb "google.golang.org/protobuf/internal/testprotos/testeditions/testeditions_opaque"
+	testhybridpb "github.com/raftseg/protobuf-go/internal/testprotos/testeditions/testeditions_hybrid"
+	testopaquepb "github.com/raftseg/protobuf-go/internal/testprotos/testeditions/testeditions_opaque"
 )
 
 func TestOpenSetNilReceiver(t *testing.T) {

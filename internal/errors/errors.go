@@ -1,6 +1,9 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Package errors implements functions to manipulate errors.
 package errors
@@ -9,7 +12,7 @@ import (
 	"errors"
 	"fmt"
 
-	"google.golang.org/protobuf/internal/detrand"
+	"github.com/raftseg/protobuf-go/internal/detrand"
 )
 
 // Error is a sentinel matching all errors produced by this package.

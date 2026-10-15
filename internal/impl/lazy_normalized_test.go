@@ -1,16 +1,19 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package impl_test
 
 import (
 	"testing"
 
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/testing/protopack"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/testing/protopack"
 
-	lazytestpb "google.golang.org/protobuf/internal/testprotos/lazy"
+	lazytestpb "github.com/raftseg/protobuf-go/internal/testprotos/lazy"
 )
 
 // Constructs a message encoded in denormalized (non-minimal) wire format, but

@@ -1,19 +1,22 @@
 // Copyright 2024 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 package proto_test
 
 import (
 	"testing"
 
-	test3openpb "google.golang.org/protobuf/internal/testprotos/test3"
-	test3hybridpb "google.golang.org/protobuf/internal/testprotos/test3/test3_hybrid"
-	test3opaquepb "google.golang.org/protobuf/internal/testprotos/test3/test3_opaque"
-	testhybridpb "google.golang.org/protobuf/internal/testprotos/testeditions/testeditions_hybrid"
-	testopaquepb "google.golang.org/protobuf/internal/testprotos/testeditions/testeditions_opaque"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/reflect/protoreflect"
+	test3openpb "github.com/raftseg/protobuf-go/internal/testprotos/test3"
+	test3hybridpb "github.com/raftseg/protobuf-go/internal/testprotos/test3/test3_hybrid"
+	test3opaquepb "github.com/raftseg/protobuf-go/internal/testprotos/test3/test3_opaque"
+	testhybridpb "github.com/raftseg/protobuf-go/internal/testprotos/testeditions/testeditions_hybrid"
+	testopaquepb "github.com/raftseg/protobuf-go/internal/testprotos/testeditions/testeditions_opaque"
+	"github.com/raftseg/protobuf-go/proto"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
 )
 
 func TestOpenWhich(t *testing.T) {

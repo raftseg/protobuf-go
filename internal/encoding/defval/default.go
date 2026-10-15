@@ -1,6 +1,9 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+//
+// Modified by the raftseg authors: import paths rewritten for this
+// fork's module.
 
 // Package defval marshals and unmarshals textual forms of default values.
 //
@@ -14,9 +17,9 @@ import (
 	"math"
 	"strconv"
 
-	ptext "google.golang.org/protobuf/internal/encoding/text"
-	"google.golang.org/protobuf/internal/errors"
-	"google.golang.org/protobuf/reflect/protoreflect"
+	ptext "github.com/raftseg/protobuf-go/internal/encoding/text"
+	"github.com/raftseg/protobuf-go/internal/errors"
+	"github.com/raftseg/protobuf-go/reflect/protoreflect"
 )
 
 // Format is the serialization format used to represent the default value.
